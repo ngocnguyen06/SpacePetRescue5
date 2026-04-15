@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivCrewAvatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/pet_pilot_cute"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="0dp">
+
+            <TextView
+                android:id="@+id/tvCrewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snowball"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_color_primary"/>
+
+            <TextView
+                android:id="@+id/tvCrewSpec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilot 🚀"
+                android:textColor="@color/text_color_secondary"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvCrewStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skill: 5 | Res: 4"
+                android:textColor="@color/text_color_primary"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
+
+            <ProgressBar
+                android:id="@+id/pbCrewEnergy"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="4dp"
+                android:progress="100"
+                android:progressTint="@color/pink_accent"
+                android:progressBackgroundTint="@color/pink_primary_light"/>
+
+            <TextView
+                android:id="@+id/tvEnergyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100/100"
+                android:textSize="10sp"
+                android:layout_gravity="end"
+                android:textColor="@color/text_color_secondary"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbCrewSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/pink_accent"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
