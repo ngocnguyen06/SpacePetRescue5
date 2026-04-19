@@ -26,34 +26,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pet Name ✨"
-            android:textStyle="bold"
             android:fontFamily="@font/cute_font"
             android:textColor="@color/text_color_secondary"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="8dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp">
 
             <EditText android:id="@+id/etPetName"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="Enter a name..."
-                android:fontFamily="@font/cute_font"
+                android:hint="Enter name..."
                 android:background="@drawable/edit_text_rounded_bg"
-                android:paddingHorizontal="12dp"
-                android:textColor="@color/text_color_primary"
-                android:textColorHint="#BC8F8F"/>
+                android:paddingHorizontal="16dp"
+                android:fontFamily="@font/cute_font"
+                android:inputType="textPersonName"/>
 
             <Button android:id="@+id/btnRandomName"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:text="🎲"
-                android:backgroundTint="#B39DDB"
                 android:layout_marginStart="8dp"
+                android:backgroundTint="#B39DDB"
                 app:cornerRadius="12dp"/>
         </LinearLayout>
 
@@ -61,23 +59,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Specialization 🎀"
-            android:textStyle="bold"
             android:fontFamily="@font/cute_font"
             android:textColor="@color/text_color_secondary"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="8dp"/>
 
         <Spinner android:id="@+id/spSpecialization"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="@color/pink_primary"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="20dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
             app:cardElevation="0dp"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="32dp">
 
             <TextView android:id="@+id/tvSpecStats"
                 android:layout_width="match_parent"
@@ -87,7 +83,7 @@
                 android:textColor="@color/text_color_primary"
                 android:textSize="14sp"
                 android:fontFamily="@font/cute_font"
-                android:text="Stats will appear here..."/>
+                android:text="Select a specialization to see stats."/>
         </androidx.cardview.widget.CardView>
 
         <Button android:id="@+id/btnCreatePet"
@@ -95,18 +91,17 @@
             android:layout_height="55dp"
             android:text="🐾 Welcome to the Academy!"
             android:backgroundTint="@color/pink_primary"
-            android:fontFamily="@font/cute_font"
             android:textColor="@color/white"
-            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/cute_font"
+            android:layout_marginBottom="12dp"
             app:cornerRadius="15dp"/>
 
         <Button android:id="@+id/btnCancelRecruitment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Maybe later"
-            android:fontFamily="@font/cute_font"
+            android:layout_height="50dp"
+            android:text="Maybe Later"
             android:backgroundTint="#B39DDB"
-            android:textColor="@color/white"
+            android:fontFamily="@font/cute_font"
             app:cornerRadius="12dp"/>
     </LinearLayout>
 </ScrollView>

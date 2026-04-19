@@ -15,14 +15,13 @@
         android:fontFamily="@font/cute_font"
         android:textStyle="bold"
         android:textColor="@color/text_color_primary"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="4dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rest and relaxation area 🎀"
-        android:textSize="14sp"
         android:fontFamily="@font/cute_font"
         android:textColor="@color/text_color_secondary"
         android:layout_marginBottom="16dp"/>
@@ -30,11 +29,10 @@
     <TextView android:id="@+id/tvQuartersEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All pets are busy exploring! 🛸\nNo pets currently in Quarters."
-        android:textColor="@color/text_color_secondary"
+        android:text="All pets are busy exploring! 🛸"
         android:gravity="center"
+        android:padding="40dp"
         android:fontFamily="@font/cute_font"
-        android:padding="20dp"
         android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,17 +40,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="16dp"
-        android:clipToPadding="false"
-        android:paddingBottom="8dp"/>
+        android:layout_marginBottom="16dp" />
 
     <Button android:id="@+id/btnMoveToSimulator"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="✨ Move to Training Room"
         android:backgroundTint="@color/pink_primary"
-        android:textColor="@color/white"
-        android:fontFamily="@font/cute_font"
         android:layout_marginBottom="8dp"
         app:cornerRadius="15dp"/>
 
@@ -61,17 +55,13 @@
         android:layout_height="55dp"
         android:text="🚀 Move to Mission Control"
         android:backgroundTint="@color/pink_accent"
-        android:textColor="@color/white"
-        android:fontFamily="@font/cute_font"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         app:cornerRadius="15dp"/>
 
     <Button android:id="@+id/btnQuartersBack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Back to Academy"
-        android:fontFamily="@font/cute_font"
         android:backgroundTint="#B39DDB"
-        android:textColor="@color/white"
         app:cornerRadius="12dp"/>
 </LinearLayout>
