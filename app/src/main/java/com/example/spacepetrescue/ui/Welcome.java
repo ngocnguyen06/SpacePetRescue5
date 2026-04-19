@@ -41,6 +41,7 @@ public class Welcome extends AppCompatActivity {
         Configuration config = new Configuration();
         config.setLocale(locale);
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        com.example.spacepetrescue.util.LocaleHelper.setLocale(this, code);
         recreate();
     }
 

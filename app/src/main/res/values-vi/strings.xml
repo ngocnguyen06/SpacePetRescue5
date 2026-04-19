@@ -9,5 +9,7 @@
     <string name="btn_train">Phòng huấn luyện</string>
     <string name="energy_label">Năng lượng: </string>
     <string name="guide_title">Hướng dẫn cách chơi</string>
+    <string name="mission_success">Nhiệm vụ thành công! ✨</string>
+    <string name="mission_fail">Nhiệm vụ thất bại. 🛸</string>
     <string name="guide_content">👉 Tuyển thú cưng: Đến Văn phòng Tuyển dụng để tìm bạn đồng hành mới. Mỗi bạn có chỉ số riêng dựa trên vai trò (Phi công, Y tá,...).\n👉 Huấn luyện: Sử dụng Phòng Huấn luyện để nâng cao kỹ năng của thú cưng và chuẩn bị cho chúng đối mặt với các mối đe dọa thực sự từ vũ trụ.\n👉 Quản lý: Kiểm tra danh sách thú cưng trong Nhà nghỉ dưỡng để theo dõi năng lượng và chuyên môn của chúng.\n👉 Trung tâm Điều khiển Nhiệm vụ: Phân công nhiệm vụ cho những thú cưng tốt nhất của bạn. Thành công phụ thuộc vào sự kết hợp kỹ năng phù hợp!\n👉 Cứu lấy Thiên hà: Giải cứu thú cưng và giữ cho phi hành đoàn của bạn luôn vui vẻ! 🐾</string>
 </resources>

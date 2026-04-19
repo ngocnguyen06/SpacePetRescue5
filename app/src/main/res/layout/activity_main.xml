@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_title"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/cute_font"
             android:textColor="@color/text_color_primary"

@@ -19,7 +19,6 @@ public class MissionControl {
 
     public MissionControl() {
         this.storage = Storage.getInstance();
-        this.log = new ArrayList<>();
     }
 
     public void launchMission(CrewMember a, CrewMember b) {

@@ -1,280 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_background">
+    android:background="#2C3E50">
 
+    <!-- Mission Selection Layout -->
     <LinearLayout
         android:id="@+id/layoutMissionSelection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:visibility="visible">
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🚀 Mission Preparation"
+            android:text="Mission Control"
+            android:textColor="#ECF0F1"
             android:textSize="24sp"
-            android:fontFamily="@font/cute_font"
-            android:textColor="@color/text_color_primary"
-            android:layout_marginBottom="4dp"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
 
         <TextView
             android:id="@+id/tvSelectionHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/cute_font"
-            android:text="Select exactly 2 pets for the mission ✨"
-            android:textColor="@color/text_color_secondary"
-            android:layout_marginBottom="16dp"/>
+            android:text="Select 2 Pets for the mission"
+            android:textColor="#BDC3C7"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMissionPets"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Mission Level:"
-            android:fontFamily="@font/cute_font"
-            android:textColor="@color/text_color_primary"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="10dp" />
 
         <Spinner
             android:id="@+id/spnMissionLevels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:padding="8dp"
-            android:background="@android:drawable/btn_dropdown"/>
+            android:layout_marginBottom="10dp"
+            android:background="#34495E" />
 
         <Button
             android:id="@+id/btnLaunchMission"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="LAUNCH MISSION 🎀"
-            android:backgroundTint="@color/pink_accent"
-            android:textColor="@color/white"
-            android:enabled="false"
-            android:layout_marginBottom="8dp"
-            app:cornerRadius="15dp"/>
+            android:layout_height="wrap_content"
+            android:text="LAUNCH MISSION"
+            android:enabled="false" />
 
         <Button
             android:id="@+id/btnMissionBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:backgroundTint="#B39DDB"
-            app:cornerRadius="12dp"/>
+            android:text="BACK"
+            android:backgroundTint="#E74C3C" />
     </LinearLayout>
 
-    <LinearLayout
+    <!-- Battle Arena Layout -->
+    <ScrollView
         android:id="@+id/layoutBattleArena"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
         android:visibility="gone">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="2dp"
-            android:layout_marginBottom="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@color/card_background">
-
-                <TextView
-                    android:id="@+id/tvThreatName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="👾 THREAT"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/cute_font"
-                    android:textStyle="bold"
-                    android:textColor="#D32F2F"
-                    android:layout_gravity="center_horizontal" />
-
-                <ProgressBar
-                    android:id="@+id/pbThreat"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="12dp"
-                    android:progressTint="#D32F2F"
-                    android:layout_marginVertical="4dp" />
-
-                <TextView
-                    android:id="@+id/tvThreatHp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0/0"
-                    android:fontFamily="@font/cute_font"
-                    android:textStyle="bold"
-                    android:textColor="#D32F2F"
-                    android:layout_gravity="end" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+            <!-- Threat Info -->
+            <TextView
+                android:id="@+id/tvThreatName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="4dp"
-                app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="@color/pink_primary_light">
+                android:text="Threat"
+                android:textColor="#E74C3C"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal" />
+
+            <ProgressBar
+                android:id="@+id/pbThreat"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvThreatHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100/100"
+                android:textColor="#ECF0F1"
+                android:layout_gravity="center_horizontal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#7F8C8D"
+                android:layout_marginVertical="20dp" />
+
+            <!-- Pets Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
                     <TextView
                         android:id="@+id/tvPetAName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pet A"
-                        android:fontFamily="@font/cute_font"
-                        android:textColor="@color/text_color_primary"
-                        android:textStyle="bold"
-                        android:ellipsize="end"
-                        android:maxLines="1" />
+                        android:textColor="#3498DB" />
                     <ProgressBar
                         android:id="@+id/pbPetA"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:progressTint="#388E3C" />
+                        android:layout_height="wrap_content" />
                     <TextView
                         android:id="@+id/tvPetAHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0/0"
-                        android:fontFamily="@font/cute_font"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_color_secondary" />
+                        android:text="100/100"
+                        android:textColor="#ECF0F1" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="@color/pink_primary_light">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
                     <TextView
                         android:id="@+id/tvPetBName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pet B"
-                        android:textColor="@color/text_color_primary"
-                        android:textStyle="bold"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/cute_font"
-                        android:maxLines="1" />
+                        android:textColor="#F1C40F" />
                     <ProgressBar
                         android:id="@+id/pbPetB"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:progressTint="#388E3C" />
+                        android:layout_height="wrap_content" />
                     <TextView
                         android:id="@+id/tvPetBHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/cute_font"
-                        android:text="0/0"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_color_secondary" />
+                        android:text="100/100"
+                        android:textColor="#ECF0F1" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvActivePet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your turn ✨"
-            android:textStyle="bold"
-            android:fontFamily="@font/cute_font"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="12dp"
-            android:textColor="@color/text_color_primary" />
-
-        <ScrollView
-            android:id="@+id/svBattleLog"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/card_background"
-            android:padding="8dp"
-            android:fadeScrollbars="false">
             <TextView
-                android:id="@+id/tvBattleLog"
+                android:id="@+id/tvActivePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="20dp"
+                android:text="Ready!"
+                android:textColor="#ECF0F1"
+                android:textSize="18sp" />
+
+            <ScrollView
+                android:id="@+id/svBattleLog"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#1C2833"
+                android:padding="8dp">
+                <TextView
+                    android:id="@+id/tvBattleLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#95A5A6"
+                    android:text="Battle Log..." />
+            </ScrollView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/text_color_secondary"
-                android:fontFamily="@font/cute_font"
-                android:textSize="13sp" />
-        </ScrollView>
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:id="@+id/btnAttack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Attack" />
+                <Button
+                    android:id="@+id/btnSpecial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Special" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp">
             <Button
-                android:id="@+id/btnAttack"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:layout_weight="1"
-                android:text="ATTACK 💢"
-                android:backgroundTint="@color/pink_accent"
-                android:layout_marginEnd="6dp"
-                app:cornerRadius="15dp"/>
-            <Button
-                android:id="@+id/btnSpecial"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:layout_weight="1"
-                android:text="SPECIAL ✨"
-                android:backgroundTint="#FFB74D"
-                android:layout_marginStart="6dp"
-                app:cornerRadius="15dp"/>
+                android:id="@+id/btnEndMission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FINISH MISSION"
+                android:visibility="gone"
+                android:layout_marginTop="10dp" />
+
         </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btnEndMission"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Finish Mission 🏠"
-            android:backgroundTint="@color/pink_primary"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"
-            app:cornerRadius="15dp"/>
-    </LinearLayout>
 </FrameLayout>
