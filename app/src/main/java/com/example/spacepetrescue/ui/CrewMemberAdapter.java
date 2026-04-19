@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spacepetrescue.R;
@@ -21,24 +22,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * RecyclerView adapter for displaying crew members as cards.
- * Supports optional multi-selection via checkboxes.
- * Bonus: shows unique avatar image per specialization.
- */
 public class CrewMemberAdapter
         extends RecyclerView.Adapter<CrewMemberAdapter.PetViewHolder> {
 
-    // ── Listener interface ────────────────────────────────────────────────
     public interface OnPetSelectedListener {
         void onPetSelected(CrewMember cm, boolean checked);
     }
 
-    // ── State ─────────────────────────────────────────────────────────────
     private List<CrewMember> pets;
-    private Set<Integer> selectedIds;   // selected crew member IDs
+    private Set<Integer> selectedIds;
     private OnPetSelectedListener listener;
-    private boolean selectable;    // show checkboxes?
+    private boolean selectable;
 
     public CrewMemberAdapter(List<CrewMember> pets, OnPetSelectedListener listener, boolean selectable) {
         this.pets = new ArrayList<>(pets);
@@ -46,8 +40,6 @@ public class CrewMemberAdapter
         this.selectable = selectable;
         this.selectedIds = new HashSet<>();
     }
-
-    // ── RecyclerView overrides ────────────────────────────────────────────
 
     @NonNull
     @Override
@@ -65,8 +57,6 @@ public class CrewMemberAdapter
 
     @Override
     public int getItemCount() { return pets.size(); }
-
-    // ── Public helpers ────────────────────────────────────────────────────
 
     public void updateData(List<CrewMember> newPets) {
         pets.clear();
@@ -88,10 +78,9 @@ public class CrewMemberAdapter
         notifyDataSetChanged();
     }
 
-    // ── ViewHolder ────────────────────────────────────────────────────────
-
     class PetViewHolder extends RecyclerView.ViewHolder {
 
+        CardView cardView;
         ImageView ivAvatar;
         TextView tvName;
         TextView tvSpec;
@@ -102,6 +91,7 @@ public class CrewMemberAdapter
 
         PetViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardView = (CardView) itemView;
             ivAvatar = itemView.findViewById(R.id.ivCrewAvatar);
             tvName = itemView.findViewById(R.id.tvCrewName);
             tvSpec = itemView.findViewById(R.id.tvCrewSpec);
@@ -114,31 +104,22 @@ public class CrewMemberAdapter
         void bind(CrewMember cm) {
             tvName.setText(cm.getName());
             tvSpec.setText(cm.getSpecialization());
-            tvStats.setText("Skill: " + cm.getSkill()
-                    + "  |  Res: " + cm.getResilience()
-                    + "  |  XP: " + cm.getExperience()
-                    + "  |  Missions: " + cm.getMissionsCompleted());
-
-            // Energy bar
+            tvStats.setText("Skill: " + cm.getSkill() + "  |  Res: " + cm.getResilience() + "  |  XP: " + cm.getExperience() + "  |  Missions: " + cm.getMissionsCompleted());
             pbEnergy.setMax(cm.getMaxEnergy());
             pbEnergy.setProgress(cm.getEnergy());
             tvEnergyLabel.setText(cm.getEnergy() + "/" + cm.getMaxEnergy());
 
-            // Avatar image – look up drawable by name (avatar_pilot, avatar_medic, etc.)
             Resources res = itemView.getContext().getResources();
             String pkg = itemView.getContext().getPackageName();
             int drawableId = res.getIdentifier(cm.getAvatarPath(), "drawable", pkg);
             if (drawableId != 0) {
                 ivAvatar.setImageResource(drawableId);
             } else {
-                // Fallback: tint a generic icon with spec colour
                 ivAvatar.setImageResource(R.drawable.ic_pet_default);
             }
 
-            // Spec colour accent on the card
-            itemView.setBackgroundColor(Color.parseColor("#FCE4EC"));
+            cardView.setCardBackgroundColor(specColour(cm.getSpecialization()));
 
-            // Checkbox visibility & state
             cbSelect.setVisibility(selectable ? View.VISIBLE : View.GONE);
             cbSelect.setChecked(selectedIds.contains(cm.getId()));
             cbSelect.setOnCheckedChangeListener((btn, checked) -> {
@@ -147,10 +128,8 @@ public class CrewMemberAdapter
                 if (listener != null) listener.onPetSelected(cm, checked);
             });
 
-            // Tapping the whole card also toggles checkbox
             itemView.setOnClickListener(v -> cbSelect.toggle());
 
-            // Medbay indicator
             if (cm.isInjured()) {
                 tvName.setText(cm.getName() + " 🏥 (recovering)");
             }
@@ -159,17 +138,17 @@ public class CrewMemberAdapter
         private int specColour(String spec) {
             switch (spec) {
                 case "Pilot":
-                    return Color.parseColor("#DDEEFF"); // light blue
+                    return Color.parseColor("#DDEEFF");
                 case "Engineer":
-                    return Color.parseColor("#FFFACD"); // lemon
+                    return Color.parseColor("#FFFACD");
                 case "Medic":
-                    return Color.parseColor("#DDFFDD"); // light green
+                    return Color.parseColor("#DDFFDD");
                 case "Scientist":
-                    return Color.parseColor("#F0DDFF"); // lavender
+                    return Color.parseColor("#F0DDFF");
                 case "Soldier":
-                    return Color.parseColor("#FFE0E0"); // light red
+                    return Color.parseColor("#FFE0E0");
                 default:
-                    return Color.parseColor("#F5F5F5"); // grey
+                    return Color.parseColor("#F5F5F5");
             }
         }
     }

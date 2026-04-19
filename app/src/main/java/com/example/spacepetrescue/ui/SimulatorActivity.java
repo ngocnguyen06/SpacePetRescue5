@@ -19,7 +19,6 @@ import java.util.List;
 
 public class SimulatorActivity extends AppCompatActivity
         implements CrewMemberAdapter.OnPetSelectedListener {
-
     private Storage storage;
     private Simulator simulator;
     private CrewMemberAdapter adapter;
@@ -44,37 +43,31 @@ public class SimulatorActivity extends AppCompatActivity
         rv.setAdapter(adapter);
         updateEmptyView();
 
-        // Train selected pets
         btnTrain.setOnClickListener(v -> {
             List<CrewMember> selected = adapter.getSelected();
             if (selected.isEmpty()) {
-                Toast.makeText(this, "Select pets to train!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Select pets to train! 🌟", Toast.LENGTH_SHORT).show();
                 return;
             }
             for (CrewMember cm : selected) {
                 simulator.train(cm);
             }
-            Toast.makeText(this,
-                    selected.size() + " pet(s) trained! +1 XP each 🌟",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "🏅 Training complete! " + selected.size() + " pet(s) got stronger!", Toast.LENGTH_SHORT).show();
             adapter.clearSelection();
             adapter.notifyDataSetChanged();
         });
 
-        // Send back to Quarters (restores energy)
         btnToHome.setOnClickListener(v -> {
             List<CrewMember> selected = adapter.getSelected();
             if (selected.isEmpty()) {
-                Toast.makeText(this, "Select pets to send home!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Choose who needs a rest \uD83D\uDCA4", Toast.LENGTH_SHORT).show();
                 return;
             }
             for (CrewMember cm : selected) {
                 cm.restoreEnergy();
                 cm.setCurrentLocation(CrewMember.LOCATION_QUARTERS);
             }
-            Toast.makeText(this,
-                    selected.size() + " pet(s) sent home 🏠 (energy restored)",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "🏠 " + selected.size() + " pet(s) are resting up and feeling better!", Toast.LENGTH_SHORT).show();
             refresh();
         });
 

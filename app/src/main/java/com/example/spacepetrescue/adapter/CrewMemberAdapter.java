@@ -156,7 +156,6 @@ public class CrewMemberAdapter
             }
         }
 
-        /** Returns a light background colour that matches the specialization. */
         private int specColour(String spec) {
             switch (spec) {
                 case "Pilot":     return Color.parseColor("#DDEEFF"); // light blue

@@ -1,9 +1,4 @@
 package com.example.spacepetrescue.model;
-
-/**
- * Factory that creates the correct CrewMember subclass based on the
- * specialization string chosen by the player.
- */
 public class CrewMemberFactory {
 
     public static final String PILOT = "Pilot";
@@ -11,7 +6,6 @@ public class CrewMemberFactory {
     public static final String MEDIC = "Medic";
     public static final String SCIENTIST = "Scientist";
     public static final String SOLDIER = "Soldier";
-
     public static final String[] ALL_SPECS = {
             PILOT, ENGINEER, MEDIC, SCIENTIST, SOLDIER
     };

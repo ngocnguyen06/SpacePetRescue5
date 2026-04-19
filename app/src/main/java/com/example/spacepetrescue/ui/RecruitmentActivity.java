@@ -14,11 +14,8 @@ import com.example.spacepetrescue.model.CrewMember;
 import com.example.spacepetrescue.model.CrewMemberFactory;
 import com.example.spacepetrescue.model.Quarters;
 
-/**
- * Recruitment Screen – name a pet and pick a specialization.
- * Shows the base stats for the selected specialization so the player
- * can make an informed choice.
- */
+import java.util.Random;
+
 public class RecruitmentActivity extends AppCompatActivity {
 
     private EditText etName;
@@ -26,10 +23,14 @@ public class RecruitmentActivity extends AppCompatActivity {
     private TextView tvStats;
     private Button btnCreate;
     private Button btnCancel;
+    private Button btnRandomName;
 
     private Quarters quarters;
 
-    // Stat display for each spec (matches Table 1 from instructions)
+    private String[] cuteNames = {"Marshmallow", "Boba", "Pudding", "Mochi", "Pixel", "Rocket",
+            "Cookie", "Pancake", "Bubble", "Oreo", "Peanut", "Coffee", "Meatball", "Dumpling",
+            "Waffle", "Candy", "Donut", "Honey", "Nugget", "Berry", "Cinnamon"};
+
     private static final String[] STAT_DESCRIPTIONS = {
             "Pilot     | Skill: 5  | Resilience: 4  | Energy: 20  🔵",
             "Engineer  | Skill: 6  | Resilience: 3  | Energy: 19  🟡",
@@ -50,8 +51,8 @@ public class RecruitmentActivity extends AppCompatActivity {
         tvStats = findViewById(R.id.tvSpecStats);
         btnCreate = findViewById(R.id.btnCreatePet);
         btnCancel = findViewById(R.id.btnCancelRecruitment);
+        btnRandomName = findViewById(R.id.btnRandomName);
 
-        // Populate the spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_item,
@@ -59,7 +60,6 @@ public class RecruitmentActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spSpecialization.setAdapter(adapter);
 
-        // Update stat display when spinner changes
         spSpecialization.setOnItemSelectedListener(
                 new android.widget.AdapterView.OnItemSelectedListener() {
                     @Override
@@ -70,25 +70,27 @@ public class RecruitmentActivity extends AppCompatActivity {
                     public void onNothingSelected(android.widget.AdapterView<?> parent) {}
                 });
 
-        // Show first stats immediately
         tvStats.setText(STAT_DESCRIPTIONS[0]);
 
-        // Create button
         btnCreate.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();
             if (name.isEmpty()) {
-                Toast.makeText(this, "Enter a name!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Give your pet a name! 🐾", Toast.LENGTH_SHORT).show();
                 return;
             }
             String spec = (String) spSpecialization.getSelectedItem();
             CrewMember cm = CrewMemberFactory.create(name, spec);
             if (cm != null) {
                 quarters.createCrewMember(cm);
-                Toast.makeText(this,
-                        spec + " '" + name + "' joined the crew! 🐾",
+                Toast.makeText(this, spec + " \uD83C\uDF1F" + name + " has joined the crew! 🐾",
                         Toast.LENGTH_SHORT).show();
-                finish(); // go back to overview
+                finish();
             }
+        });
+
+        btnRandomName.setOnClickListener(v -> {
+            int index = new Random().nextInt(cuteNames.length);
+            etName.setText(cuteNames[index]);
         });
 
         btnCancel.setOnClickListener(v -> finish());

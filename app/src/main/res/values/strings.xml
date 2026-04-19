@@ -1,3 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Space Pet Rescue</string>
+    <string name="welcome">Welcome to Space Academy! ✨</string>
+    <string name="start">Start Game 🚀</string>
+    <string name="how_to_play">How to play 📖</string>
+    <string name="quit">Quit 🏠</string>
+    <string name="change_lang">Change language 🌐</string>
+    <string name="btn_recruit">Recruit Pet</string>
+    <string name="btn_train">Training Simulator</string>
+    <string name="energy_label">Energy: </string>
+    <string name="guide_title">Academy Guide</string>
+    <string name="guide_content">👉 Recruit Pets: Go to the Recruitment office to find new companions. Each pet has unique stats based on their role (Pilot, Medic,...).\n👉 Train &amp; Simulate: Use the Training Room to improve your pet\'s skills and prepare them for real cosmic threats.\n👉 Manage Quarters: Check your pet list in the Quarters to monitor their energy and specialization.\n👉 Mission Control: Assign your best pets to missions. Success depends on the right match of skills!.\n👉 Save the Galaxy: Rescue pets and keep your crew happy! 🐾</string>
+    <string name="main_title">🐱 Space Pet Rescue Academy 🚀</string>
+    <string name="main_subtitle">Your Crew\'s Home Base 🌸</string>
+    <string name="btn_recruit_new">🐾 Recruit a new pet</string>
+    <string name="btn_quarters">🏠 Cozy Quarters</string>
+    <string name="btn_training_room">✨ Training Room</string>
+    <string name="btn_mission_launch">🚀 Mission Launch</string>
+    <string name="btn_save">💖 Save Game</string>
+    <string name="btn_load">🌟 Load Game</string>
+    <string name="quarters_label">🏠 Quarters: %d</string>
+    <string name="simulator_label">✨ Simulator: %d</string>
+    <string name="mission_control_label">🚀 Mission Control: %d</string>
+    <string name="medbay_label">🩹 Medbay: %d</string>
+    <string name="missions_completed">Missions completed: %d 🎀</string>
 </resources>

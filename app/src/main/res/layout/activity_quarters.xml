@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1A1A2E"
+    android:background="@color/pink_background"
     android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🏠 Quarters"
-        android:textSize="22sp"
+        android:text="🏠 Pet Quarters"
+        android:textSize="24sp"
+        android:fontFamily="@font/cute_font"
         android:textStyle="bold"
-        android:textColor="#2196F3"
+        android:textColor="@color/text_color_primary"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rest and relaxation area 🎀"
+        android:textSize="14sp"
+        android:fontFamily="@font/cute_font"
+        android:textColor="@color/text_color_secondary"
         android:layout_marginBottom="16dp"/>
 
     <TextView android:id="@+id/tvQuartersEmpty"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No pets currently in Quarters."
-        android:textColor="#AAAAAA"
+        android:text="All pets are busy exploring! 🛸\nNo pets currently in Quarters."
+        android:textColor="@color/text_color_secondary"
+        android:gravity="center"
+        android:fontFamily="@font/cute_font"
+        android:padding="20dp"
         android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,25 +41,36 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"/>
 
     <Button android:id="@+id/btnMoveToSimulator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🏋️ Move to Simulator"
-        android:backgroundTint="#FF9800"
-        android:layout_marginBottom="8dp"/>
+        android:layout_height="55dp"
+        android:text="✨ Move to Training Room"
+        android:backgroundTint="@color/pink_primary"
+        android:textColor="@color/white"
+        android:fontFamily="@font/cute_font"
+        android:layout_marginBottom="8dp"
+        app:cornerRadius="15dp"/>
 
     <Button android:id="@+id/btnMoveToMission"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:text="🚀 Move to Mission Control"
-        android:backgroundTint="#F44336"
-        android:layout_marginBottom="8dp"/>
+        android:backgroundTint="@color/pink_accent"
+        android:textColor="@color/white"
+        android:fontFamily="@font/cute_font"
+        android:layout_marginBottom="8dp"
+        app:cornerRadius="15dp"/>
 
     <Button android:id="@+id/btnQuartersBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:backgroundTint="#607D8B"/>
+        android:text="Back to Academy"
+        android:fontFamily="@font/cute_font"
+        android:backgroundTint="#B39DDB"
+        android:textColor="@color/white"
+        app:cornerRadius="12dp"/>
 </LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color_primary"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"/>
+
+    <Button android:id="@+id/btnStart"
+        android:text="@string/start"
+        style="@style/CuteButtonStyle" />
+
+    <Button android:id="@+id/btnGuide"
+        android:text="@string/how_to_play"
+        style="@style/CuteButtonStyle" />
+
+    <Button android:id="@+id/btnLang"
+        android:text="@string/change_lang"
+        android:backgroundTint="#B39DDB"
+        style="@style/CuteButtonStyle" />
+
+    <Button android:id="@+id/btnQuit"
+        android:text="@string/quit"
+        android:backgroundTint="@color/pink_primary_dark"
+        style="@style/CuteButtonStyle" />
+</LinearLayout>

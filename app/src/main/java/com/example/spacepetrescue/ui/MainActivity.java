@@ -1,19 +1,17 @@
 package com.example.spacepetrescue.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.spacepetrescue.R;
 import com.example.spacepetrescue.model.CrewMember;
 import com.example.spacepetrescue.model.Storage;
-
 public class MainActivity extends AppCompatActivity {
-
     private Storage storage;
     private TextView tvQuartersCount;
     private TextView tvSimulatorCount;
@@ -26,15 +24,17 @@ public class MainActivity extends AppCompatActivity {
     private Button btnMission;
     private Button btnSave;
     private Button btnLoad;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        View mainLayout = findViewById(android.R.id.content);
+        android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable(
+                android.graphics.drawable.GradientDrawable.Orientation.TOP_BOTTOM, new int[] {0xFFFCE4EC, 0xFFFFC1E3});
+        mainLayout.setBackground(gd);
         storage = Storage.getInstance();
 
-        // Find views
         tvQuartersCount = findViewById(R.id.tvQuartersCount);
         tvSimulatorCount = findViewById(R.id.tvSimulatorCount);
         tvMissionCount = findViewById(R.id.tvMissionControlCount);
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnLoad = findViewById(R.id.btnLoad);
 
-        // Navigation
         btnRecruitment.setOnClickListener(v ->
                 startActivity(new Intent(this, RecruitmentActivity.class)));
         btnQuarters.setOnClickListener(v ->
@@ -58,18 +57,27 @@ public class MainActivity extends AppCompatActivity {
         btnMission.setOnClickListener(v ->
                 startActivity(new Intent(this, MissionControlActivity.class)));
 
-        // Save / Load
         btnSave.setOnClickListener(v -> {
             storage.saveToFile(this);
-            Toast.makeText(this, "Game saved! 💾", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Progress saved! 🎀✨", Toast.LENGTH_SHORT).show();
         });
         btnLoad.setOnClickListener(v -> {
             boolean ok = storage.loadFromFile(this);
-            Toast.makeText(this,
-                    ok ? "Game loaded! ✅" : "No save file found.",
-                    Toast.LENGTH_SHORT).show();
-            updateCounts();
+            if (ok) {
+                Toast.makeText(this, "Welcome back! Data loaded! 🐾✅", Toast.LENGTH_SHORT).show();
+                updateCounts();
+            } else {
+                Toast.makeText(this, "No save file found yet. 🛸", Toast.LENGTH_SHORT).show();
+            }
         });
+    }
+
+    private void applyCuteBackground() {
+        View mainLayout = findViewById(R.id.main);
+        if (mainLayout != null) {
+            GradientDrawable gd = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[] {0xFFFCE4EC, 0xFFFFC1E3});
+            mainLayout.setBackground(gd);
+        }
     }
 
     @Override
@@ -79,10 +87,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateCounts() {
-        tvQuartersCount.setText("🏠 Quarters: " + storage.listByLocation(CrewMember.LOCATION_QUARTERS).size());
-        tvSimulatorCount.setText("🏋️ Simulator: " + storage.listByLocation(CrewMember.LOCATION_SIMULATOR).size());
-        tvMissionCount.setText("🚀 Mission Control: " + storage.listByLocation(CrewMember.LOCATION_MISSION).size());
-        tvMedbayCount.setText("🏥 Medbay: " + storage.listByLocation(CrewMember.LOCATION_MEDBAY).size());
-        tvMissionsTotal.setText("Missions completed: " + storage.getMissionCount());
+        tvQuartersCount.setText("🐾 Napping in Cozy Quarters: " + storage.listByLocation(CrewMember.LOCATION_QUARTERS).size());
+        tvSimulatorCount.setText("✨ Training in Training Room: " + storage.listByLocation(CrewMember.LOCATION_SIMULATOR).size());
+        tvMissionCount.setText("🚀 Ready for Missions: " + storage.listByLocation(CrewMember.LOCATION_MISSION).size());
+        tvMedbayCount.setText("🩹 Resting in Medbay: " + storage.listByLocation(CrewMember.LOCATION_MEDBAY).size());
+
+        int totalMissions = storage.getMissionCount();
+        String motivation = (totalMissions > 0) ? "The galaxy is safer thanks to you! 🎀" : "Ready for your first adventure? ✨";
+        tvMissionsTotal.setText("Successful Missions: " + totalMissions + "\n" + motivation);
     }
 }

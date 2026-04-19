@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A2E"
+    android:background="@color/pink_background"
     android:padding="16dp">
 
     <LinearLayout
@@ -13,65 +14,98 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="➕ Recruit a Pet"
-            android:textSize="22sp"
+            android:text="➕ Recruit a New Friend"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#FFD700"
+            android:fontFamily="@font/cute_font"
+            android:textColor="@color/text_color_primary"
             android:layout_marginBottom="24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pet Name"
-            android:textColor="#CCCCCC"
+            android:text="Pet Name ✨"
+            android:textStyle="bold"
+            android:fontFamily="@font/cute_font"
+            android:textColor="@color/text_color_secondary"
             android:layout_marginBottom="4dp"/>
 
-        <EditText android:id="@+id/etPetName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter a name..."
-            android:backgroundTint="#FFFFFF"
-            android:textColor="#000000"
-            android:textColorHint="#888888"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <EditText android:id="@+id/etPetName"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:hint="Enter a name..."
+                android:fontFamily="@font/cute_font"
+                android:background="@drawable/edit_text_rounded_bg"
+                android:paddingHorizontal="12dp"
+                android:textColor="@color/text_color_primary"
+                android:textColorHint="#BC8F8F"/>
+
+            <Button android:id="@+id/btnRandomName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="🎲"
+                android:backgroundTint="#B39DDB"
+                android:layout_marginStart="8dp"
+                app:cornerRadius="12dp"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Specialization"
-            android:textColor="#CCCCCC"
+            android:text="Specialization 🎀"
+            android:textStyle="bold"
+            android:fontFamily="@font/cute_font"
+            android:textColor="@color/text_color_secondary"
             android:layout_marginBottom="4dp"/>
 
         <Spinner android:id="@+id/spSpecialization"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/pink_primary"
             android:layout_marginBottom="16dp"/>
 
-        <TextView android:id="@+id/tvSpecStats"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:background="#16213E"
-            android:textColor="#FFD700"
-            android:textSize="14sp"
-            android:fontFamily="monospace"
-            android:layout_marginBottom="24dp"
-            android:text=""/>
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView android:id="@+id/tvSpecStats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@color/pink_primary_light"
+                android:textColor="@color/text_color_primary"
+                android:textSize="14sp"
+                android:fontFamily="@font/cute_font"
+                android:text="Stats will appear here..."/>
+        </androidx.cardview.widget.CardView>
 
         <Button android:id="@+id/btnCreatePet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🐾 Recruit!"
-                android:backgroundTint="#4CAF50"
-                android:textColor="#FFFFFF"
-                android:layout_marginBottom="8dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="🐾 Welcome to the Academy!"
+            android:backgroundTint="@color/pink_primary"
+            android:fontFamily="@font/cute_font"
+            android:textColor="@color/white"
+            android:layout_marginBottom="8dp"
+            app:cornerRadius="15dp"/>
 
         <Button android:id="@+id/btnCancelRecruitment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:backgroundTint="#607D8B"
-                android:textColor="#FFFFFF"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maybe Later"
+            android:fontFamily="@font/cute_font"
+            android:backgroundTint="#B39DDB"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp"/>
     </LinearLayout>
 </ScrollView>

@@ -3,12 +3,16 @@
     <color name="pink_primary">#F48FB1</color>
     <color name="pink_primary_dark">#C25E81</color>
     <color name="pink_primary_light">#FFC1E3</color>
-
     <color name="pink_accent">#FF4081</color>
-
     <color name="pink_background">#FCE4EC</color>
-
-    <color name="text_color_primary">#880E4F</color> <color name="text_color_secondary">#C2185B</color>
-
+    <color name="card_background">#FFF1F8</color>
     <color name="white">#FFFFFF</color>
-    <color name="card_background">#FFF1F8</color> </resources>
+    <color name="text_color_primary">#880E4F</color>
+    <color name="text_color_secondary">#C2185B</color>
+
+    <color name="bg_medic">#FFF1F8</color>
+    <color name="bg_pilot">#E3F2FD</color>
+    <color name="bg_soldier">#FFF3E0</color>
+    <color name="bg_engineer">#F3E5F5</color>
+    <color name="bg_scientist">#E8F5E9</color>
+</resources>

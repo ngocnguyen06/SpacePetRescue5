@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Space Pet Rescue</string>
+    <string name="welcome">Tervetuloa Avaruusakatemiaan! ✨</string>
+    <string name="start">Aloita peli 🚀</string>
+    <string name="how_to_play">Ohjeet 📖</string>
+    <string name="quit">Lopeta 🏠</string>
+    <string name="change_lang">Vaihda kieli 🌐</string>
+    <string name="btn_recruit">Rekrytoi lemmikki</string>
+    <string name="btn_train">Harjoitussimulaattori</string>
+    <string name="energy_label">Energia: </string>
+    <string name="guide_title">Akatemian Opas</string>
+    <string name="guide_content">👉 Rekrytoi lemmikkejä: Mene rekrytointitoimistoon löytääksesi uusia kumppaneita. Jokaisella lemmikillä on ainutlaatuiset ominaisuudet roolin perusteella (lentäjä, lääkintämies,...).\n👉 Harjoittele ja simuloi: Käytä koulutushuonetta parantaaksesi lemmikkisi taitoja ja valmistaaksesi niitä todellisiin kosmisiin uhkiin.\n👉 Hallitse majoitustiloja: Tarkista lemmikkiluettelosi majoitustiloista seurataksesi niiden energiaa ja erikoistumista.\n👉 Tehtävien hallinta: Määritä parhaat lemmikkisi tehtäviin. Menestys riippuu oikeasta taitojen yhteensopivuudesta!.\n👉 Pelasta galaksi: Pelasta lemmikkejä ja pidä miehistösi tyytyväisenä! 🐾</string>
+</resources>

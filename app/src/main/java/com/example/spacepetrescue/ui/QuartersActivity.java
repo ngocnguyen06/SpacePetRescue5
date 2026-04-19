@@ -16,13 +16,8 @@ import com.example.spacepetrescue.model.Storage;
 
 import java.util.List;
 
-/**
- * Quarters View – shows all pets at home.
- * Player can select pets and move them to Simulator or Mission Control.
- */
 public class QuartersActivity extends AppCompatActivity
         implements CrewMemberAdapter.OnPetSelectedListener {
-
     private Storage storage;
     private CrewMemberAdapter adapter;
     private TextView tvEmpty;
@@ -40,29 +35,26 @@ public class QuartersActivity extends AppCompatActivity
         Button btnMission = findViewById(R.id.btnMoveToMission);
         Button btnBack = findViewById(R.id.btnQuartersBack);
 
-        // RecyclerView setup
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CrewMemberAdapter(getResidents(), this, true);
         rv.setAdapter(adapter);
         updateEmptyView();
 
-        // Move to Simulator
         btnSimulator.setOnClickListener(v -> {
             List<CrewMember> selected = adapter.getSelected();
             if (selected.isEmpty()) {
-                Toast.makeText(this, "Select at least one pet first!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Select at least one pet first! \uD83D\uDC3E", Toast.LENGTH_SHORT).show();
                 return;
             }
             for (CrewMember cm : selected) {
                 cm.setCurrentLocation(CrewMember.LOCATION_SIMULATOR);
             }
             Toast.makeText(this,
-                    selected.size() + " pet(s) moved to Simulator 🏋️",
+                    selected.size() + " pet(s) are heading to training! 🏋️",
                     Toast.LENGTH_SHORT).show();
             refresh();
         });
 
-        // Move to Mission Control
         btnMission.setOnClickListener(v -> {
             List<CrewMember> selected = adapter.getSelected();
             if (selected.isEmpty()) {
@@ -73,7 +65,7 @@ public class QuartersActivity extends AppCompatActivity
                 cm.setCurrentLocation(CrewMember.LOCATION_MISSION);
             }
             Toast.makeText(this,
-                    selected.size() + " pet(s) moved to Mission Control 🚀",
+                    selected.size() + " pet(s) are ready for adventure! 🚀",
                     Toast.LENGTH_SHORT).show();
             refresh();
         });
@@ -83,7 +75,6 @@ public class QuartersActivity extends AppCompatActivity
 
     @Override
     public void onPetSelected(CrewMember cm, boolean checked) {
-        // adapter handles internal selection state
     }
 
     private List<CrewMember> getResidents() {
