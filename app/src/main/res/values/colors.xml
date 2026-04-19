@@ -9,7 +9,8 @@
     <color name="white">#FFFFFF</color>
     <color name="text_color_primary">#880E4F</color>
     <color name="text_color_secondary">#C2185B</color>
-
+    <color name="text_hint_dark">#A66584</color>
+    <color name="mission_bg_dark">#1A1A1A</color>
     <color name="bg_medic">#FFF1F8</color>
     <color name="bg_pilot">#E3F2FD</color>
     <color name="bg_soldier">#FFF3E0</color>

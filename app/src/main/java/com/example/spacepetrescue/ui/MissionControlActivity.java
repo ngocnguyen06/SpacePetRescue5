@@ -105,16 +105,28 @@ public class MissionControlActivity extends AppCompatActivity
 
         layoutBattle.setVisibility(View.GONE);
 
+        spnMissionLevels.setVisibility(View.GONE);
+        btnLaunch.setText("NEXT: CHOOSE MISSION");
+        btnLaunch.setEnabled(false);
+
         btnLaunch.setOnClickListener(v -> {
             List<CrewMember> selected = adapter.getSelected();
-            if (selected.size() != 2) {
-                Toast.makeText(this, "Choose 2 brave pets for this mission! 🐾🐾", Toast.LENGTH_SHORT).show();
-                return;
+            if (selected.size() == 2) {
+                if (spnMissionLevels.getVisibility() == View.GONE) {
+                    spnMissionLevels.setVisibility(View.VISIBLE);
+                    rvMissionPets.setVisibility(View.GONE);
+                    tvSelectionHint.setText("Great! Now choose your destination: ✨");
+                    btnLaunch.setText("LAUNCH MISSION 🚀");
+                    btnLaunch.setBackgroundTintList(getColorStateList(R.color.pink_accent));
+                } else {
+                    petA = selected.get(0);
+                    petB = selected.get(1);
+                    MissionTemplate selectedTemplate = (MissionTemplate) spnMissionLevels.getSelectedItem();
+                    startBattle(selectedTemplate);
+                }
+            } else {
+                Toast.makeText(this, "Please choose 2 pets first! 🐾🐾", Toast.LENGTH_SHORT).show();
             }
-            petA = selected.get(0);
-            petB = selected.get(1);
-            MissionTemplate selectedTemplate = (MissionTemplate) spnMissionLevels.getSelectedItem();
-            startBattle(selectedTemplate);
         });
 
         btnAttack.setOnClickListener(v -> doTurn(MissionControl.Action.ATTACK));
@@ -191,8 +203,7 @@ public class MissionControlActivity extends AppCompatActivity
             }
         }
 
-        btnSpecial.setText("⚡ Special: " + getSpecialName(
-                missionControl.isMissionActive() ? missionControl.getActivePet() : petA));
+        btnSpecial.setText("⚡ Special: " + getSpecialName(missionControl.isMissionActive() ? missionControl.getActivePet() : petA));
     }
 
     private void appendLog() {
@@ -243,9 +254,9 @@ public class MissionControlActivity extends AppCompatActivity
 
     private void setupMissionTemplates() {
         missionLevels = new ArrayList<>();
-        missionLevels.add(new MissionTemplate("Patrol", "Easy mission for beginners", 1.0, 1));
-        missionLevels.add(new MissionTemplate("Alien Raid", "Moderate difficulty", 1.5, 2));
-        missionLevels.add(new MissionTemplate("Black Hole Core", "Extremely dangerous!", 2.5, 5));
+        missionLevels.add(new MissionTemplate("🛡️ Patrol", "Easy mission for beginners", 1.0, 1));
+        missionLevels.add(new MissionTemplate("🛸 Alien Raid", "Moderate difficulty", 1.5, 2));
+        missionLevels.add(new MissionTemplate("🕳️ Black Hole", "Extremely dangerous!", 2.5, 5));
         ArrayAdapter<MissionTemplate> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, missionLevels);
         spnMissionLevels.setAdapter(adapter);

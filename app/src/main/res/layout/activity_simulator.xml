@@ -12,11 +12,10 @@
         android:layout_height="wrap_content"
         android:text="✨ Training Simulator"
         android:fontFamily="@font/cute_font"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/text_color_primary"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="4dp"/>
+        android:layout_marginTop="48dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +23,7 @@
         android:fontFamily="@font/cute_font"
         android:text="Train your pets to gain extra skill power 🎀"
         android:textColor="@color/text_color_secondary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
     <TextView android:id="@+id/tvSimulatorEmpty"

@@ -40,10 +40,12 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="Enter name..."
+                android:hint="Enter a name..."
                 android:background="@drawable/edit_text_rounded_bg"
                 android:paddingHorizontal="16dp"
                 android:fontFamily="@font/cute_font"
+                android:textColor="@color/text_color_primary"
+                android:textColorHint="@color/text_hint_dark"
                 android:inputType="textPersonName"/>
 
             <Button android:id="@+id/btnRandomName"

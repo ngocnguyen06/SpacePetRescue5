@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#2C3E50">
+    android:background="@color/pink_background">
 
     <LinearLayout
         android:id="@+id/layoutMissionSelection"
@@ -18,9 +18,9 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mission Control"
-            android:textColor="#ECF0F1"
-            android:textSize="24sp"
+            android:text="Mission Control 🚀"
+            android:textColor="@color/text_color_primary"
+            android:textSize="28sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp" />
 
@@ -43,16 +43,15 @@
         <Spinner
             android:id="@+id/spnMissionLevels"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
-            android:background="#34495E" />
+            android:layout_height="55dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            android:background="@drawable/edit_text_rounded_bg" />
 
         <Button
             android:id="@+id/btnLaunchMission"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LAUNCH MISSION"
-            android:enabled="false" />
+            android:text="SELECT MISSION"
+            android:backgroundTint="@color/pink_primary" />
 
         <Button
             android:id="@+id/btnMissionBack"
