@@ -9,17 +9,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="32dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="➕ Recruit a New Friend"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/cute_font"
-            android:textColor="@color/text_color_primary"
-            android:layout_marginBottom="24dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="➕ Recruit a New Friend"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/cute_font"
+        android:textColor="@color/text_color_primary"
+        android:layout_marginBottom="24dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,7 +103,7 @@
         <Button android:id="@+id/btnCancelRecruitment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Maybe Later"
+            android:text="Maybe later"
             android:fontFamily="@font/cute_font"
             android:backgroundTint="#B39DDB"
             android:textColor="@color/white"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/pink_background"
-    android:padding="16dp">
+    android:padding="4dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,6 +15,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_color_primary"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="4dp"/>
 
     <TextView
