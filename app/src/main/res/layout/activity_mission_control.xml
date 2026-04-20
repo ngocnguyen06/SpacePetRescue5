@@ -1,129 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MissionControlActivity"
-    android:background="@color/colorBackground">
+    android:padding="16dp"
+    android:background="@color/pink_background">
+
+    <LinearLayout
+        android:id="@+id/layoutMissionSelection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mission Control 🚀"
+            android:textColor="@color/text_color_primary"
+            android:textSize="28sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/tvSelectionHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select 2 Pets for the mission"
+            android:textColor="@color/text_color_secondary"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMissionPets"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp" />
+
+        <Spinner
+            android:id="@+id/spnMissionLevels"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            android:background="@drawable/edit_text_rounded_bg" />
+
+        <Button
+            android:id="@+id/btnLaunchMission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEXT: CHOOSE MISSION"
+            android:backgroundTint="@color/pink_primary"
+            app:cornerRadius="15dp" />
+
+        <Button
+            android:id="@+id/btnMissionBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:backgroundTint="#B39DDB"
+            android:layout_marginTop="8dp"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
 
     <ScrollView
+        android:id="@+id/layoutBattleArena"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
-
-            <ImageView
-                android:id="@+id/ivMissionLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/ic_launcher_foreground"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="32dp"
-                android:contentDescription="Mission Control Logo" />
+            android:padding="16dp">
 
             <TextView
-                android:id="@+id/tvMissionControlTitle"
+                android:id="@+id/tvThreatName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MISSION CONTROL"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp" />
+                android:text="Threat"
+                android:textColor="#E74C3C"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal" />
+
+            <ProgressBar
+                android:id="@+id/pbThreat" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/tvSubtitle"
+                android:id="@+id/tvThreatHp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="System Status: Operational"
-                android:textSize="14sp"
-                android:textColor="@color/text_color_secondary"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="32dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="24dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="#34495E"
-                    app:cardCornerRadius="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvFuelLevel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="85%"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#2ECC71" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="FUEL"
-                            android:textSize="12sp"
-                            android:textColor="#BDC3C7" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="#34495E"
-                    app:cardCornerRadius="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvOxygenLevel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="92%"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#3498DB" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="OXYGEN"
-                            android:textSize="12sp"
-                            android:textColor="#BDC3C7" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnLaunchRescue"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="LAUNCH RESCUE MISSION"
-                android:backgroundTint="@color/colorAccent"
+                android:text="100/100"
                 android:textColor="@color/text_color_primary"
                 android:layout_gravity="center_horizontal" />
 
@@ -136,62 +109,113 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#2C3E50"
-                    android:padding="12dp"
-                    android:layout_marginBottom="12dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvPetAName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pet A"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
                         android:textColor="#3498DB" />
+                    <ProgressBar
+                        android:id="@+id/pbPetA" style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <TextView
-                        android:id="@+id/tvPetAStatus"
+                        android:id="@+id/tvPetAHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Status: Waiting for Rescue"
-                        android:textSize="14sp"
-                        android:textColor="#BDC3C7" />
+                        android:text="100/100"
+                        android:textColor="@color/text_color_primary" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#2C3E50"
-                    android:padding="12dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvPetBName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pet B"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="#E67E22" />
+                        android:textColor="#F1C40F" />
+
+                    <ProgressBar
+                        android:id="@+id/pbPetB" style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <TextView
-                        android:id="@+id/tvPetBStatus"
+                        android:id="@+id/tvPetBHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Status: Signal Lost"
-                        android:textSize="14sp"
-                        android:textColor="#BDC3C7" />
+                        android:text="100/100"
+                        android:textColor="@color/text_color_primary" />
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvActivePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="20dp"
+                android:text="Ready!"
+                android:textColor="@color/text_color_primary"
+                android:textSize="18sp" />
+
+            <ScrollView
+                android:id="@+id/svBattleLog"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#1C2833"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvBattleLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#95A5A6"
+                    android:text="Battle Log..." />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/btnAttack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Attack" />
+
+                <Button
+                    android:id="@+id/btnSpecial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Special" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnEndMission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FINISH MISSION"
+                android:visibility="gone"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
     </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

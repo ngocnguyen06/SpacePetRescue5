@@ -23,5 +23,6 @@
     <string name="simulator_label">✨ Simulator: %d</string>
     <string name="mission_control_label">🚀 Mission Control: %d</string>
     <string name="medbay_label">🩹 Medbay: %d</string>
-    <string name="missions_completed">Missions completed: %d 🎀</string>
+    <string name="mission_fail">Mission Failed! 🛸</string>
+    <string name="mission_success">Mission Success! 🎉</string>
 </resources>
