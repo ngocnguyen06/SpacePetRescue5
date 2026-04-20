@@ -33,7 +33,6 @@ public class CrewMemberAdapter
     private Set<Integer> selectedIds;
     private OnPetSelectedListener listener;
     private boolean selectable;
-
     public CrewMemberAdapter(List<CrewMember> pets, OnPetSelectedListener listener, boolean selectable) {
         this.pets = new ArrayList<>(pets);
         this.listener = listener;
@@ -79,7 +78,6 @@ public class CrewMemberAdapter
     }
 
     class PetViewHolder extends RecyclerView.ViewHolder {
-
         CardView cardView;
         ImageView ivAvatar;
         TextView tvName;
@@ -104,7 +102,13 @@ public class CrewMemberAdapter
         void bind(CrewMember cm) {
             tvName.setText(cm.getName());
             tvSpec.setText(cm.getSpecialization());
-            tvStats.setText("Skill: " + cm.getSkill() + "  |  Res: " + cm.getResilience() + "  |  XP: " + cm.getExperience() + "  |  Missions: " + cm.getMissionsCompleted());
+            tvStats.setText("⚔️ Skill: " + cm.getSkill()
+                    + "\n🛡️ Resilience: " + cm.getResilience()
+                    + "\n❤️ Health: " + cm.getEnergy()
+                    + "\n✨ XP: " + cm.getExperience());
+            tvName.setTextColor(Color.BLACK);
+            tvSpec.setTextColor(Color.BLACK);
+            tvStats.setTextColor(Color.parseColor("#333333"));
             pbEnergy.setMax(cm.getMaxEnergy());
             pbEnergy.setProgress(cm.getEnergy());
             tvEnergyLabel.setText(cm.getEnergy() + "/" + cm.getMaxEnergy());

@@ -37,6 +37,18 @@
         android:fontFamily="@font/cute_font"
         android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/btnSelectAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✅ Select All"
+        android:layout_gravity="end"
+        android:textSize="12sp"
+        android:backgroundTint="#81C784"
+        android:layout_marginBottom="8dp"
+        app:cornerRadius="8dp"
+        android:fontFamily="@font/cute_font"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvQuarters"
         android:layout_width="match_parent"
@@ -66,4 +78,6 @@
         android:text="Back to Academy"
         android:backgroundTint="#B39DDB"
         app:cornerRadius="12dp"/>
+
+
 </LinearLayout>

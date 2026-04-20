@@ -21,12 +21,14 @@ public class QuartersActivity extends AppCompatActivity
     private Storage storage;
     private CrewMemberAdapter adapter;
     private TextView tvEmpty;
+    private Button btnSelectAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarters);
 
+        btnSelectAll = findViewById(R.id.btnSelectAll);
         storage = Storage.getInstance();
 
         RecyclerView rv  = findViewById(R.id.rvQuarters);
@@ -53,6 +55,12 @@ public class QuartersActivity extends AppCompatActivity
                     selected.size() + " pet(s) are heading to training! 🏋️",
                     Toast.LENGTH_SHORT).show();
             refresh();
+        });
+
+        Button btnSelectAll = findViewById(R.id.btnSelectAll);
+        btnSelectAll.setOnClickListener(v -> {
+            adapter.selectAll();
+            Toast.makeText(this, "All pets selected! 🐾", Toast.LENGTH_SHORT).show();
         });
 
         btnMission.setOnClickListener(v -> {
@@ -87,8 +95,11 @@ public class QuartersActivity extends AppCompatActivity
     }
 
     private void updateEmptyView() {
-        tvEmpty.setVisibility(getResidents().isEmpty() ? View.VISIBLE : View.GONE);
-    }
+        boolean isEmpty = getResidents().isEmpty();
+        tvEmpty.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+        if (btnSelectAll != null) {
+            btnSelectAll.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+        }    }
 
     @Override
     protected void onResume() {

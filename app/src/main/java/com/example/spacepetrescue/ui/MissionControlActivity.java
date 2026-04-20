@@ -185,14 +185,17 @@ public class MissionControlActivity extends AppCompatActivity
 
         tvThreatName.setText("⚠ " + t.getName());
         pbThreat.setProgress(t.getEnergy());
+        updateHealthBar(pbThreat, t.getEnergy(), t.getMaxEnergy());
         tvThreatHp.setText(t.getEnergy() + "/" + t.getMaxEnergy());
 
         tvPetAName.setText(petA.getSpecialization() + " " + petA.getName());
         pbPetA.setProgress(petA.getEnergy());
+        updateHealthBar(pbPetA, petA.getEnergy(), petA.getMaxEnergy());
         tvPetAHp.setText(petA.getEnergy() + "/" + petA.getMaxEnergy());
 
         tvPetBName.setText(petB.getSpecialization() + " " + petB.getName());
         pbPetB.setProgress(petB.getEnergy());
+        updateHealthBar(pbPetB, petB.getEnergy(), petB.getMaxEnergy());
         tvPetBHp.setText(petB.getEnergy() + "/" + petB.getMaxEnergy());
 
         if (missionControl.isMissionActive()) {
@@ -260,5 +263,19 @@ public class MissionControlActivity extends AppCompatActivity
         ArrayAdapter<MissionTemplate> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, missionLevels);
         spnMissionLevels.setAdapter(adapter);
+    }
+
+    private void updateHealthBar(ProgressBar bar, int current, int max) {
+        bar.setMax(max);
+        bar.setProgress(current);
+
+        float percent = (float) current / max;
+        if (percent < 0.2f) {
+            bar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.RED));
+        } else if (percent < 0.5f) {
+            bar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.YELLOW));
+        } else {
+            bar.setProgressTintList(android.content.res.ColorStateList.valueOf(Color.GREEN));
+        }
     }
 }
