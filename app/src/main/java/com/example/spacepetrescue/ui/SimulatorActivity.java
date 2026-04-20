@@ -26,6 +26,7 @@ public class SimulatorActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        com.example.spacepetrescue.util.LocaleHelper.applySavedLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simulator);
 

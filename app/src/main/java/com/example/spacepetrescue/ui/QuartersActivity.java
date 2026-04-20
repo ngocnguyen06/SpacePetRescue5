@@ -25,13 +25,14 @@ public class QuartersActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        com.example.spacepetrescue.util.LocaleHelper.applySavedLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quarters);
 
         btnSelectAll = findViewById(R.id.btnSelectAll);
         storage = Storage.getInstance();
 
-        RecyclerView rv  = findViewById(R.id.rvQuarters);
+        RecyclerView rv = findViewById(R.id.rvQuarters);
         tvEmpty = findViewById(R.id.tvQuartersEmpty);
         Button btnSimulator = findViewById(R.id.btnMoveToSimulator);
         Button btnMission = findViewById(R.id.btnMoveToMission);

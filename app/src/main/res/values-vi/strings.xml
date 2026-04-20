@@ -1,4 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="main_title">🐱 Space Pet Rescue Academy 🚀</string>
+    <string name="main_subtitle">Căn cứ chính 🌸</string>
+
+    <string name="btn_recruit_new">🐾 Tuyển chiến binh</string>
+    <string name="recruit_name_hint"> Tên chiến binh ✨</string>
+    <string name="recruit_name_input_hint">Nhập tên...</string>
+    <string name="recruit_spec_label">Chủng loại 🎀</string>
+    <string name="recruit_spec_prompt">Chọn để xem chỉ số</string>
+    <string name="btn_welcome_academy">🐾 Chào mừng thành viên mới!</string>
+    <string name="btn_cancel">Quay lại</string>
+
+    <string name="btn_quarters">🏠 Khu nghỉ dưỡng</string>
+    <string name="quarters_subtitle">Khu vực nghỉ ngơi và thư giãn 🎀</string>
+    <string name="quarters_empty">Tất cả chiến binh đã ra trận rồi 🛸\nKhông còn bạn nào cả.</string>
+    <string name="btn_select_all">✅ Chọn tất cả</string>
+    <string name="btn_move_simulator">✨ Di chuyển đến phòng huấn luyện</string>
+    <string name="btn_move_mission">🚀 Di chuyển ra chiến trường</string>
+    <string name="btn_back">Quay lại trang chủ</string>
+
+    <string name="btn_training_room">✨Phòng huấn luyện</string>
+    <string name="sim_subtitle">Huấn luyện các chiến binh để có thêm sức mạnh kỹ năng. 💪</string>
+    <string name="sim_empty">Phòng huấn luyện đang rảnh... ⚙️\nDi chuyển các chiến binh vào đây để bắt đầu huấn luyện!</string>
+    <string name="btn_start_train">💪 Huấn luyện (+1 XP)</string>
+    <string name="btn_finish_sim">🏠 Kết thúc &amp; Quay lại Khu nghỉ dưỡng</string>
+
+    <string name="btn_mission_launch">🚀 Bắt đầu nhiệm vụ</string>
+
+    <string name="btn_save">💖 Lưu lại</string>
+    <string name="btn_load">🌟 Tải lại</string>
+    <string name="quarters_label">🏠 Khu nghỉ dưỡng: %d</string>
+    <string name="simulator_label">✨ Khu huấn luyện: %d</string>
+    <string name="mission_control_label">🚀 Chiến trường: %d</string>
+    <string name="medbay_label">🩹 Phòng y tế: %d</string>
+    <string name="battle_log_init">Nhật ký chiến đấu...</string>
+    <string name="mission_ctrl_hint">Chọn 2 chiến binh</string>
+    <string name="btn_next_mission">TIẾP THEO: CHỌN NHIỆM VỤ</string>
+    <string name="battle_threat_label">Thử thách</string>
+    <string name="battle_ready">Sẵn sàng!</string>
+    <string name="btn_attack">⚔️ Tấn công</string>
+    <string name="btn_special">⚡ Xuất chiêu</string>
+    <string name="btn_finish_mission">HOÀN TẤT NHIỆM VỤ</string>
+    <string name="mission_fail">Nhiệm vụ thất bại! 🛸</string>
+    <string name="mission_success">Nhiệm vụ thành công! 🎉</string>
     <string name="app_name">Space Pet Rescue</string>
     <string name="welcome">Chào mừng tới Học viện Không gian! ✨</string>
     <string name="start">Bắt đầu 🚀</string>
@@ -9,7 +53,5 @@
     <string name="btn_train">Phòng huấn luyện</string>
     <string name="energy_label">Năng lượng: </string>
     <string name="guide_title">Hướng dẫn cách chơi</string>
-    <string name="mission_success">Nhiệm vụ thành công! ✨</string>
-    <string name="mission_fail">Nhiệm vụ thất bại. 🛸</string>
     <string name="guide_content">👉 Tuyển thú cưng: Đến Văn phòng Tuyển dụng để tìm bạn đồng hành mới. Mỗi bạn có chỉ số riêng dựa trên vai trò (Phi công, Y tá,...).\n👉 Huấn luyện: Sử dụng Phòng Huấn luyện để nâng cao kỹ năng của thú cưng và chuẩn bị cho chúng đối mặt với các mối đe dọa thực sự từ vũ trụ.\n👉 Quản lý: Kiểm tra danh sách thú cưng trong Nhà nghỉ dưỡng để theo dõi năng lượng và chuyên môn của chúng.\n👉 Trung tâm Điều khiển Nhiệm vụ: Phân công nhiệm vụ cho những thú cưng tốt nhất của bạn. Thành công phụ thuộc vào sự kết hợp kỹ năng phù hợp!\n👉 Cứu lấy Thiên hà: Giải cứu thú cưng và giữ cho phi hành đoàn của bạn luôn vui vẻ! 🐾</string>
 </resources>

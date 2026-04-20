@@ -1,4 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="main_title">🐱 Space Pet Rescue Academy 🚀</string>
+    <string name="main_subtitle">Miehistön koti 🌸</string>
+
+    <string name="btn_recruit_new">🐾 Hanki uusi lemmikki</string>
+    <string name="recruit_name_hint">Lempinimi ✨</string>
+    <string name="recruit_name_input_hint">Anna nimi...</string>
+    <string name="recruit_spec_label">Erikoistuminen 🎀</string>
+    <string name="recruit_spec_prompt">Valitse löytääksesi ominaisuudet</string>
+    <string name="btn_welcome_academy">🐾 Tervetuloa uusiksi käyttäjää!</string>
+    <string name="btn_cancel">Ehkä myöhemmin</string>
+
+    <string name="btn_quarters">🏠 Majoitustiloja</string>
+    <string name="quarters_subtitle">Majoitustilojen ja huolelliset 🎀</string>
+    <string name="quarters_empty">Kaikki lemmikit ovat kiireisiä tutkimusmatkalla! 🛸\nMajoituspaikassa ei ole tällä hetkellä lemmikkejä.</string>
+    <string name="btn_select_all">✅ Valitse kaikki</string>
+    <string name="btn_move_simulator">✨ Siirry harjoitushuoneeseen</string>
+    <string name="btn_move_mission">🚀 Siirry tehtävänjohtoon</string>
+    <string name="btn_back">Mene takaisin kotiin</string>
+
+    <string name="btn_training_room">✨ Harjoitushuone</string>
+    <string name="sim_subtitle">Kouluta lemmikkisi saadaksesi lisää taitovoimaa 💪</string>
+    <string name="sim_empty">Simulaattori on hiljainen... ⚙️\nSiirrä lemmikit majoituksesta tänne koulutuksen aloittamiseksi!</string>
+    <string name="btn_start_train">💪 Aloita koulutus (+1 XP)</string>
+    <string name="btn_finish_sim">🏠 Valmis &amp; Takaisin majoitukseen</string>
+
+    <string name="btn_mission_launch">🚀 Tehtävän käynnistäminen</string>
+
+    <string name="btn_save">💖 Tallenna peli</string>
+    <string name="btn_load">🌟 Lataa peli</string>
+    <string name="quarters_label">🏠 Majoitus: %d</string>
+    <string name="simulator_label">✨ Harjoitushuone: %d</string>
+    <string name="mission_control_label">🚀 Tehtävänohjaus: %d</string>
+    <string name="medbay_label">🩹 Medbay: %d</string>
+    <string name="battle_log_init">Taisteluloki...</string>
+    <string name="mission_ctrl_hint">Valitse haasteeseen 2 lemmikkiä</string>
+    <string name="btn_next_mission">SEURAAVAKSI: VALITSE HAASTE</string>
+    <string name="battle_threat_label">Uhka</string>
+    <string name="battle_ready">Valmis!</string>
+    <string name="btn_attack">⚔️ Hyökkäys</string>
+    <string name="btn_special">⚡ Erikois</string>
+    <string name="btn_finish_mission">MAALIHAASTE</string>
+    <string name="mission_fail">Haaste epäonnistui! 🛸</string>
+    <string name="mission_success">Haaste menestys!! 🎉</string>
     <string name="app_name">Space Pet Rescue</string>
     <string name="welcome">Tervetuloa Avaruusakatemiaan! ✨</string>
     <string name="start">Aloita peli 🚀</string>
