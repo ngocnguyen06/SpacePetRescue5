@@ -20,13 +20,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 public class CrewMemberAdapter
         extends RecyclerView.Adapter<CrewMemberAdapter.PetViewHolder> {
+
     public interface OnPetSelectedListener {
         void onPetSelected(CrewMember cm, boolean checked);
     }
+
     private List<CrewMember> pets;
-    private Set<Integer>  selectedIds;
+    private Set<Integer> selectedIds;
     private OnPetSelectedListener listener;
     private boolean selectable;
 
@@ -36,6 +39,7 @@ public class CrewMemberAdapter
         this.selectable = selectable;
         this.selectedIds = new HashSet<>();
     }
+
     @NonNull
     @Override
     public PetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,9 +50,9 @@ public class CrewMemberAdapter
 
     @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
-        CrewMember cm = pets.get(position);
-        holder.bind(cm);
+        holder.bind(pets.get(position));
     }
+
     @Override
     public int getItemCount() { return pets.size(); }
 
@@ -58,6 +62,7 @@ public class CrewMemberAdapter
         selectedIds.clear();
         notifyDataSetChanged();
     }
+
     public List<CrewMember> getSelected() {
         List<CrewMember> result = new ArrayList<>();
         for (CrewMember cm : pets) {
@@ -88,6 +93,7 @@ public class CrewMemberAdapter
         ProgressBar pbEnergy;
         TextView tvEnergyLabel;
         CheckBox cbSelect;
+
         PetViewHolder(@NonNull View itemView) {
             super(itemView);
             ivAvatar = itemView.findViewById(R.id.ivCrewAvatar);
@@ -98,6 +104,7 @@ public class CrewMemberAdapter
             tvEnergyLabel = itemView.findViewById(R.id.tvEnergyLabel);
             cbSelect = itemView.findViewById(R.id.cbCrewSelect);
         }
+
         void bind(CrewMember cm) {
             tvName.setText(cm.getName());
             tvSpec.setText(cm.getSpecialization());
@@ -129,7 +136,6 @@ public class CrewMemberAdapter
                 ivAvatar.setImageResource(R.drawable.ic_pet_default);
             }
 
-            itemView.setBackgroundColor(specColour(cm.getSpecialization()));
             cbSelect.setVisibility(selectable ? View.VISIBLE : View.GONE);
             cbSelect.setChecked(selectedIds.contains(cm.getId()));
             cbSelect.setOnCheckedChangeListener((btn, checked) -> {

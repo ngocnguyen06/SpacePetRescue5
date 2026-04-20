@@ -176,15 +176,19 @@
             <ScrollView
                 android:id="@+id/svBattleLog"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="180dp"
                 android:background="#1C2833"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
 
                 <TextView
                     android:id="@+id/tvBattleLog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#95A5A6"
+                    android:fontFamily="@font/cute_font"
+                    android:textSize="13sp"
                     android:text="Battle Log..." />
             </ScrollView>
 
@@ -192,30 +196,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="4dp">
 
-                <Button
-                    android:id="@+id/btnAttack"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Attack" />
+               <Button
+                   android:id="@+id/btnAttack"
+                   android:layout_width="0dp"
+                   android:layout_height="50dp"
+                   android:layout_weight="1"
+                   android:layout_marginEnd="4dp"
+                   android:text="⚔️ Attack"
+                   android:backgroundTint="@color/pink_primary"
+                   app:cornerRadius="12dp"
+                   android:fontFamily="@font/cute_font" />
 
                 <Button
                     android:id="@+id/btnSpecial"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Special" />
+                    android:layout_marginStart="4dp"
+                    android:text="⚡ Special"
+                    android:backgroundTint="@color/pink_accent"
+                    app:cornerRadius="12dp"
+                    android:fontFamily="@font/cute_font" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnEndMission"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="FINISH MISSION"
+                android:backgroundTint="#B39DDB"
                 android:visibility="gone"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="12dp"
+                app:cornerRadius="12dp" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

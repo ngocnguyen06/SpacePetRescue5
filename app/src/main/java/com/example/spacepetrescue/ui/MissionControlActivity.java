@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spacepetrescue.R;
+import com.example.spacepetrescue.adapter.CrewMemberAdapter;
 import com.example.spacepetrescue.model.CrewMember;
 import com.example.spacepetrescue.model.MissionControl;
 import com.example.spacepetrescue.model.MissionTemplate;
@@ -117,7 +118,6 @@ public class MissionControlActivity extends AppCompatActivity
                     rvMissionPets.setVisibility(View.GONE);
                     tvSelectionHint.setText("Great! Now choose your destination: ✨");
                     btnLaunch.setText("LAUNCH MISSION 🚀");
-                    btnLaunch.setBackgroundTintList(getColorStateList(R.color.pink_accent));
                 } else {
                     petA = selected.get(0);
                     petB = selected.get(1);
@@ -166,17 +166,16 @@ public class MissionControlActivity extends AppCompatActivity
         btnAttack.setEnabled(false);
         btnSpecial.setEnabled(false);
         btnEndMission.setVisibility(View.VISIBLE);
-
-        String result = missionControl.getThreat().isDefeated()
-                ? "🎉 AMAZING! Your pets saved the day!"
-                : "💀 Oh no... Your pets need some rest.";
-        tvActivePet.setText(result);
-        tvActivePet.setTextColor(missionControl.getThreat().isDefeated()
-                ? Color.GREEN : Color.RED);
+        if (missionControl.getThreat().isDefeated()) {
+            tvActivePet.setText("🎉 AMAZING! Your pets saved the day!");
+            tvActivePet.setTextColor(Color.GREEN);
+        } else {
+            tvActivePet.setText(" Oh no... Your pets need some rest.");
+            tvActivePet.setTextColor(Color.RED);
+        }
     }
 
     private void endAndReturn() {
-
         finish();
     }
 
@@ -201,7 +200,7 @@ public class MissionControlActivity extends AppCompatActivity
         if (missionControl.isMissionActive()) {
             CrewMember active = missionControl.getActivePet();
             if (active != null) {
-                tvActivePet.setText("⭐ It's"  + active.getName() + "'s turn! " + " (" + active.getSpecialization() + ")");
+                tvActivePet.setText("⭐ It's "  + active.getName() + "'s turn! " + " (" + active.getSpecialization() + ")");
                 tvActivePet.setTextColor(Color.WHITE);
             }
         }
@@ -236,15 +235,11 @@ public class MissionControlActivity extends AppCompatActivity
         }
     }
 
-    private List<CrewMember> getMissionPets() {
-        return storage.listByLocation(CrewMember.LOCATION_MISSION);
-    }
-
     @Override
     public void onPetSelected(CrewMember cm, boolean checked) {
-        List<CrewMember> selected = adapter.getSelected();
-        tvSelectionHint.setText("Selected: " + selected.size() + "/2");
-        btnLaunch.setEnabled(selected.size() == 2);
+        int count = adapter.getSelected().size();
+        btnLaunch.setEnabled(count == 2);
+        btnLaunch.setAlpha(count == 2 ? 1.0f : 0.5f);
     }
 
     @Override
@@ -253,6 +248,10 @@ public class MissionControlActivity extends AppCompatActivity
         if (!missionControl.isMissionActive()) {
             adapter.updateData(getMissionPets());
         }
+    }
+
+    private List<CrewMember> getMissionPets() {
+        return storage.listByLocation(CrewMember.LOCATION_MISSION);
     }
 
     private void setupMissionTemplates() {
