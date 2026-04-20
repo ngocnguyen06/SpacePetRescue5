@@ -169,7 +169,7 @@ public class MissionControlActivity extends AppCompatActivity
 
         String result = missionControl.getThreat().isDefeated()
                 ? "🎉 AMAZING! Your pets saved the day!"
-                : "💀 Oh no... Your pets need some rest in Medbay.";
+                : "💀 Oh no... Your pets need some rest.";
         tvActivePet.setText(result);
         tvActivePet.setTextColor(missionControl.getThreat().isDefeated()
                 ? Color.GREEN : Color.RED);

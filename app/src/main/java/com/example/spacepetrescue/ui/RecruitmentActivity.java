@@ -54,9 +54,7 @@ public class RecruitmentActivity extends AppCompatActivity {
         btnRandomName = findViewById(R.id.btnRandomName);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                CrewMemberFactory.ALL_SPECS);
+                this, android.R.layout.simple_spinner_item, CrewMemberFactory.ALL_SPECS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spSpecialization.setAdapter(adapter);
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -11,8 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginTop="32dp"
-        android:visibility="visible">
+        android:layout_marginTop="32dp">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select 2 Pets for the mission"
-            android:textColor="#BDC3C7"
+            android:textColor="@color/text_color_secondary"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp" />
 
@@ -50,15 +50,20 @@
 
         <Button
             android:id="@+id/btnLaunchMission"
-            android:text="SELECT MISSION"
-            android:backgroundTint="@color/pink_primary" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEXT: CHOOSE MISSION"
+            android:backgroundTint="@color/pink_primary"
+            app:cornerRadius="15dp" />
 
         <Button
             android:id="@+id/btnMissionBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BACK"
-            android:backgroundTint="#E74C3C" />
+            android:backgroundTint="#B39DDB"
+            android:layout_marginTop="8dp"
+            app:cornerRadius="12dp" />
     </LinearLayout>
 
     <ScrollView
@@ -83,8 +88,7 @@
                 android:layout_gravity="center_horizontal" />
 
             <ProgressBar
-                android:id="@+id/pbThreat"
-                style="?android:attr/progressBarStyleHorizontal"
+                android:id="@+id/pbThreat" style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -93,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="100/100"
-                android:textColor="#ECF0F1"
+                android:textColor="@color/text_color_primary"
                 android:layout_gravity="center_horizontal" />
 
             <View
@@ -112,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tvPetAName"
                         android:layout_width="wrap_content"
@@ -119,16 +124,16 @@
                         android:text="Pet A"
                         android:textColor="#3498DB" />
                     <ProgressBar
-                        android:id="@+id/pbPetA"
-                        style="?android:attr/progressBarStyleHorizontal"
+                        android:id="@+id/pbPetA" style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <TextView
                         android:id="@+id/tvPetAHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100/100"
-                        android:textColor="#ECF0F1" />
+                        android:textColor="@color/text_color_primary" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -136,23 +141,25 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tvPetBName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pet B"
                         android:textColor="#F1C40F" />
+
                     <ProgressBar
-                        android:id="@+id/pbPetB"
-                        style="?android:attr/progressBarStyleHorizontal"
+                        android:id="@+id/pbPetB" style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <TextView
                         android:id="@+id/tvPetBHp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100/100"
-                        android:textColor="#ECF0F1" />
+                        android:textColor="@color/text_color_primary" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -163,7 +170,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginVertical="20dp"
                 android:text="Ready!"
-                android:textColor="#ECF0F1"
+                android:textColor="@color/text_color_primary"
                 android:textSize="18sp" />
 
             <ScrollView
@@ -186,12 +193,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="20dp">
+
                 <Button
                     android:id="@+id/btnAttack"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Attack" />
+
                 <Button
                     android:id="@+id/btnSpecial"
                     android:layout_width="0dp"
@@ -207,7 +216,6 @@
                 android:text="FINISH MISSION"
                 android:visibility="gone"
                 android:layout_marginTop="10dp" />
-
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
